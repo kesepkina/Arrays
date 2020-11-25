@@ -1,0 +1,10 @@
+
+2020-11-23 09:11:31 [main] INFO  com.epam.array.output.ConsoleOutput - Array{values=[1, 2, 4]}
+2020-11-25 21:59:13 [main] INFO  com.epam.array.output.ConsoleOutput - Array{values=[1, 5, 2345, 765, 987, 356, 665, 4456]}
+2020-11-25 21:59:13 [main] INFO  com.epam.array.output.ConsoleOutput - Array{values=[-178, 117, 161, -163, 117]}
+2020-11-25 22:06:36 [main] INFO  com.epam.array.output.ConsoleOutput - Array{values=[1, 5, 2345, 765, 987, 356, 665, 4456]}
+2020-11-25 22:06:36 [main] INFO  com.epam.array.output.ConsoleOutput - Array{values=[-40, -174, -100, 305, 341]}
+2020-11-25 22:08:44 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: Array{values=[1, 5, 2345, 765, 987, 356, 665, 4456]}
+2020-11-25 22:08:44 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: Array{values=[280, -34, 242, -112, 164]}
+2020-11-25 22:11:27 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: [I@342c38f8
+2020-11-25 22:11:27 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: [I@67f639d3

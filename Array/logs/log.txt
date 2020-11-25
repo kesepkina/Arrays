@@ -1,0 +1,10 @@
+2020-11-25 22:06:36 [main] INFO  com.epam.array.output.ConsoleOutput - Array{values=[1, 5, 2345, 765, 987, 356, 665, 4456]}
+2020-11-25 22:06:36 [main] INFO  com.epam.array.output.ConsoleOutput - Array{values=[-40, -174, -100, 305, 341]}
+2020-11-25 22:08:44 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: Array{values=[1, 5, 2345, 765, 987, 356, 665, 4456]}
+2020-11-25 22:08:44 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: Array{values=[280, -34, 242, -112, 164]}
+2020-11-25 22:11:27 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: [I@342c38f8
+2020-11-25 22:11:27 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: [I@67f639d3
+2020-11-25 22:13:30 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: java.util.stream.ReferencePipeline$4@bae7dc0
+2020-11-25 22:13:30 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: java.util.stream.ReferencePipeline$4@1b11171f
+2020-11-25 22:31:20 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: [1, 5, 2345, 765, 987, 356, 665, 4456]
+2020-11-25 22:31:20 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: [-20, 322, -89, 180, -42]
