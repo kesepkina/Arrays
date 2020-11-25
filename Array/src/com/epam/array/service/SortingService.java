@@ -4,7 +4,6 @@ import com.epam.array.entity.Array;
 
 public class SortingService {
 
-
     public void bubbleSort(Array array) {
         int[] sortingArray = array.getValues();
 
