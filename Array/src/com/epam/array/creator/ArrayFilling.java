@@ -1,6 +1,7 @@
 package com.epam.array.creator;
 
 import com.epam.array.entity.CustomArray;
+import com.epam.array.exception.ArrayServiceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,12 +32,16 @@ public class ArrayFilling {
         return fibonacciSequence;
     }
 
-    public void fillArrayFromTxtFile(CustomArray array) throws IOException {
+    public void fillArrayFromTxtFile(CustomArray array) throws ArrayServiceException {
 
         Path path = Paths.get(FILE_PATH);
         try (Stream<String> stream = Files.lines(path)) {
             int[] numbersFromFile = stream.mapToInt(x -> Integer.valueOf(x)).toArray();
             array.add(numbersFromFile);
+        } catch (IOException e) {
+            throw new ArrayServiceException(e);
+        } catch (NumberFormatException e) {
+            throw new ArrayServiceException("File includes not only integer elements", e);
         }
     }
 
