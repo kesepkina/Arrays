@@ -1,6 +1,6 @@
 package com.epam.array.service;
 
-import com.epam.array.entity.Array;
+import com.epam.array.entity.CustomArray;
 import com.epam.array.exception.ArrayServiceException;
 import com.epam.array.exception.NumberServiceException;
 
@@ -22,17 +22,12 @@ public class NumberService {
         return isPrime;
     }
 
-    protected boolean isThreeDigitNumber(int value) {
-        int divResult = Math.floorDiv(value, 100);
-        return (divResult > 0) && (divResult < 10);
-    }
-
     protected boolean hasIdenticalDigits(int value) throws NumberServiceException, ArrayServiceException {
         if (value < 10 && value > -10) {
             throw new NumberServiceException("value is one-digit");
         }
 
-        Array digits = new Array();
+        CustomArray digits = new CustomArray();
         int i = 1;
         int digit;
         do {
@@ -41,7 +36,7 @@ public class NumberService {
             i *= 10;
         } while (i < value);
 
-        ArrayService arrayService = new ArrayService();
+        CustomArrayService arrayService = new CustomArrayService();
         return arrayService.hasIdenticalElements(digits);
     }
 }

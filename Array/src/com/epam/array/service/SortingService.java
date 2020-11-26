@@ -1,10 +1,10 @@
 package com.epam.array.service;
 
-import com.epam.array.entity.Array;
+import com.epam.array.entity.CustomArray;
 
 public class SortingService {
 
-    public void bubbleSort(Array array) {
+    public void bubbleSort(CustomArray array) {
         int[] sortingArray = array.getValues();
 
         if (sortingArray.length == 0) return;
@@ -29,7 +29,7 @@ public class SortingService {
         array.setValues(sortingArray);
     }
 
-    public void heapSort(Array array) {
+    public void heapSort(CustomArray array) {
         int[] sortingArray = array.getValues();
 
         if (sortingArray.length == 0) return;
@@ -77,7 +77,7 @@ public class SortingService {
         }
     }
 
-    public void quickSort(Array array) {
+    public void quickSort(CustomArray array) {
         int[] sortingArray = array.getValues();
 
         if (sortingArray.length == 0) return;

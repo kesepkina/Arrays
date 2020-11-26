@@ -1,4 +1,7 @@
-2020-11-25 22:13:30 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: java.util.stream.ReferencePipeline$4@bae7dc0
-2020-11-25 22:13:30 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: java.util.stream.ReferencePipeline$4@1b11171f
-2020-11-25 22:31:20 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: [1, 5, 2345, 765, 987, 356, 665, 4456]
-2020-11-25 22:31:20 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: [-20, 322, -89, 180, -42]
+2020-11-26 11:03:29 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: []
+2020-11-26 11:03:29 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: [157, 151, 55, 282, -111]
+2020-11-26 11:04:18 [main] ERROR com.epam.array.creator.ArrayFilling - java.nio.file.NoSuchFileException: Array.txt
+2020-11-26 11:04:18 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: []
+2020-11-26 11:04:18 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: [-59, -184, -186, 263, 233]
+2020-11-26 11:04:41 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with elements from file: [1, 5, 2345, 765, 987, 356, 665, 4456]
+2020-11-26 11:04:41 [main] INFO  com.epam.array.output.ConsoleOutput - Array, filled with random elements: [9, -156, 249, 182, 285]

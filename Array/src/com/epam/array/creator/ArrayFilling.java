@@ -1,6 +1,6 @@
 package com.epam.array.creator;
 
-import com.epam.array.entity.Array;
+import com.epam.array.entity.CustomArray;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,11 +13,12 @@ import java.util.stream.Stream;
 
 public class ArrayFilling {
     private static Logger logger = LogManager.getLogger();
+    private final static String FILE_PATH = "res/data/Array.txt";
 
-    public Array createFibonacciSequence(int max) {
+    public CustomArray createFibonacciSequence(int max) {
         int firstSummand = 0;
         int secondSummand = 1;
-        Array fibonacciSequence = new Array(new int[]{0, 1});
+        CustomArray fibonacciSequence = new CustomArray(new int[]{0, 1});
 
         int sum = secondSummand;
         while (sum < max) {
@@ -30,22 +31,22 @@ public class ArrayFilling {
         return fibonacciSequence;
     }
 
-    public void fillArrayFromTXTFile(Array array) {
+    public void fillArrayFromTxtFile(CustomArray array) throws IOException {
 
-        Path path = Paths.get("Array.txt");
+        Path path = Paths.get(FILE_PATH);
         try (Stream<String> stream = Files.lines(path)) {
             int[] numbersFromFile = stream.mapToInt(x -> Integer.valueOf(x)).toArray();
             array.add(numbersFromFile);
-        } catch (IOException e) {
-            logger.error(e);
         }
     }
 
-    public void fillArrayWithRandom(Array array, int minValue, int maxValue, int length) {
+    public void fillArrayWithRandom(CustomArray array, int minValue, int maxValue, int length) {
         Random random = new Random();
+        int nextValue;
 
         for (int i = 0; i < length; i++) {
-            array.add((int) (random.nextInt(Math.abs(maxValue - minValue) + 1)) + minValue);
+            nextValue = (random.nextInt(Math.abs(maxValue - minValue) + 1)) + minValue;
+            array.add(nextValue);
         }
 
     }

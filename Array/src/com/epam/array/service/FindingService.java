@@ -1,7 +1,7 @@
 package com.epam.array.service;
 
 import com.epam.array.creator.ArrayFilling;
-import com.epam.array.entity.Array;
+import com.epam.array.entity.CustomArray;
 import com.epam.array.exception.ArrayServiceException;
 import com.epam.array.exception.NumberServiceException;
 
@@ -9,8 +9,10 @@ import java.util.NoSuchElementException;
 import java.util.OptionalInt;
 
 public class FindingService {
+    private final static int NINETY_NINE = 99;
+    private final static int ONE_THOUSAND = 1000;
 
-    public int findFirstIndexOfElement(Array array, int searchingFor) throws ArrayServiceException {
+    public int findFirstIndexOfElement(CustomArray array, int searchingFor) throws ArrayServiceException {
         int[] arrayForSearch = array.getValues();
 
         int length = arrayForSearch.length;
@@ -19,12 +21,12 @@ public class FindingService {
         }
 
         int i = 0;
-        do{
-            if (arrayForSearch[i] > arrayForSearch[i+1]) {
+        do {
+            if (arrayForSearch[i] > arrayForSearch[i + 1]) {
                 throw new ArrayServiceException("array isn't sorted");
             }
             i++;
-        } while(i < arrayForSearch.length - 1);
+        } while (i < arrayForSearch.length - 1);
 
         return (binarySearch(arrayForSearch, searchingFor, 0, length - 1)).getAsInt();
     }
@@ -46,11 +48,13 @@ public class FindingService {
         }
     }
 
-    public int findMaxElement(Array array) throws ArrayServiceException {
+    public int findMaxElement(CustomArray array) throws ArrayServiceException {
         int[] values = array.getValues();
 
         int length = values.length;
-        if (length == 0) throw new ArrayServiceException("array is empty");
+        if (length == 0) {
+            throw new ArrayServiceException("array is empty");
+        }
 
         int max = values[0];
         for (int i = 1; i < length; i++) {
@@ -61,11 +65,13 @@ public class FindingService {
         return max;
     }
 
-    public int findMinElement(Array array) throws ArrayServiceException {
+    public int findMinElement(CustomArray array) throws ArrayServiceException {
         int[] values = array.getValues();
 
         int length = values.length;
-        if (length == 0) throw new ArrayServiceException("array is empty");
+        if (length == 0) {
+            throw new ArrayServiceException("array is empty");
+        }
 
         int min = values[0];
         for (int i = 1; i < length; i++) {
@@ -76,14 +82,16 @@ public class FindingService {
         return min;
     }
 
-    public Array findAllPrimes(Array array) throws ArrayServiceException {
+    public CustomArray findAllPrimes(CustomArray array) throws ArrayServiceException {
         int[] values = array.getValues();
 
         int length = values.length;
-        if (length == 0) throw new ArrayServiceException("array is empty");
+        if (length == 0) {
+            throw new ArrayServiceException("array is empty");
+        }
 
         NumberService numberService = new NumberService();
-        Array primes = new Array();
+        CustomArray primes = new CustomArray();
         for (int value : values) {
             if (numberService.isPrime(value)) {
                 primes.add(value);
@@ -97,18 +105,20 @@ public class FindingService {
         return primes;
     }
 
-    public Array findFibonacciNumbers(Array array) throws ArrayServiceException {
+    public CustomArray findFibonacciNumbers(CustomArray array) throws ArrayServiceException {
 
         ArrayFilling arrayFilling = new ArrayFilling();
 
         int[] values = array.getValues();
 
         int length = values.length;
-        if (length == 0) throw new ArrayServiceException("array is empty");
+        if (length == 0) {
+            throw new ArrayServiceException("array is empty");
+        }
 
-        Array fibonacciNumbers = new Array();
+        CustomArray fibonacciNumbers = new CustomArray();
         int maxElement = findMaxElement(array);
-        Array fibonacciSequence = arrayFilling.createFibonacciSequence(maxElement);
+        CustomArray fibonacciSequence = arrayFilling.createFibonacciSequence(maxElement);
 
         for (int value : values) {
             if (contains(fibonacciSequence, value)) {
@@ -123,24 +133,18 @@ public class FindingService {
         return fibonacciNumbers;
     }
 
-    public boolean contains(Array sortedArray, int value) {
-        int[] arrayForSearch = sortedArray.getValues();
-
-        return (binarySearch(arrayForSearch, value, 0, arrayForSearch.length - 1)).isPresent();
-    }
-
-
-
-    public Array findThreeDigitNumbersWithoutIdenticalDigits(Array array) throws ArrayServiceException, NumberServiceException {
+    public CustomArray findThreeDigitNumbersWithoutIdenticalDigits(CustomArray array) throws ArrayServiceException, NumberServiceException {
         int[] values = array.getValues();
 
         int length = values.length;
-        if (length == 0) throw new ArrayServiceException("array is empty");
+        if (length == 0) {
+            throw new ArrayServiceException("array is empty");
+        }
 
-        Array finalArray = new Array();
+        CustomArray finalArray = new CustomArray();
         NumberService numberService = new NumberService();
         for (int value : values) {
-            if (numberService.isThreeDigitNumber(value) && !numberService.hasIdenticalDigits(value)) {
+            if ((value > NINETY_NINE) && (value < ONE_THOUSAND) && !numberService.hasIdenticalDigits(value)) {
                 finalArray.add(value);
             }
         }
@@ -150,5 +154,11 @@ public class FindingService {
         }
 
         return finalArray;
+    }
+
+    public boolean contains(CustomArray sortedArray, int value) {
+        int[] arrayForSearch = sortedArray.getValues();
+
+        return (binarySearch(arrayForSearch, value, 0, arrayForSearch.length - 1)).isPresent();
     }
 }

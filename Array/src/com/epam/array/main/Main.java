@@ -1,19 +1,28 @@
 package com.epam.array.main;
 
 import com.epam.array.creator.ArrayFilling;
-import com.epam.array.entity.Array;
+import com.epam.array.entity.CustomArray;
 import com.epam.array.output.ConsoleOutput;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.io.IOException;
 
 public class Main {
+    private static Logger logger = LogManager.getLogger();
 
     public static void main(String... args) {
         ArrayFilling arrayFilling = new ArrayFilling();
         ConsoleOutput output = new ConsoleOutput();
 
-        Array arrayFromFile = new Array();
-        Array randomArray = new Array();
+        CustomArray arrayFromFile = new CustomArray();
+        CustomArray randomArray = new CustomArray();
 
-        arrayFilling.fillArrayFromTXTFile(arrayFromFile);
+        try {
+            arrayFilling.fillArrayFromTxtFile(arrayFromFile);
+        } catch (IOException e) {
+            logger.error("Error by filling array from txt-file ", e);
+        }
         output.printArray("Array, filled with elements from file:", arrayFromFile);
 
         arrayFilling.fillArrayWithRandom(randomArray, -200, 345, 5);

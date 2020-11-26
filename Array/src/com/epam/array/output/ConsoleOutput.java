@@ -1,6 +1,6 @@
 package com.epam.array.output;
 
-import com.epam.array.entity.Array;
+import com.epam.array.entity.CustomArray;
 import com.epam.array.entity.JaggedArray;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -11,11 +11,11 @@ import java.util.Arrays;
 public class ConsoleOutput {
     private static Logger logger = LogManager.getLogger();
 
-    public void printArray(Array array) {
+    public void printArray(CustomArray array) {
         logger.log(Level.INFO, Arrays.toString(array.getValues()));
     }
 
-    public void printArray(String message, Array array) {
+    public void printArray(String message, CustomArray array) {
         logger.log(Level.INFO, message + " " + Arrays.toString(array.getValues()));
     }
 
